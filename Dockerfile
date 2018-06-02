@@ -2,7 +2,9 @@ FROM mono
 
 RUN apt-get update \
         && apt-get update \
-        && apt-get install mono-devel apache2 libapache2-mod-mono mono-apache-server4 -y --no-install-recommends \
+        && apt-get install mono-devel apache2 libapache2-mod-mono mono-apache-server4 \
+           libmono-data-tds4.0-cil tdsodbc freetds-bin freetds-dev libct4 \
+           -y --no-install-recommends \
         && a2enmod mod_mono \
         && service apache2 stop \
         && apt-get autoremove -y \
